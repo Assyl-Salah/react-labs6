@@ -1,5 +1,6 @@
 import React from 'react';
-import Employee from './Employee';
+import Form from './Form';
+
 class Employees extends React.Component 
 {
 constructor(props){
@@ -7,7 +8,8 @@ constructor(props){
     this.state={
         isLoading :true ,
         dsource :null,
-        isEmpty : false
+       isform : false,
+       hideform :true
     }
 }
 
@@ -26,19 +28,24 @@ componentDidMount(){
    }
    );
 }
-
+showhandler=(e)=>{
+    this.setState({isform:true})
+}
+hidehandler=(e)=>{
+    this.setState({hideform:false})
+}
 render(){
     if(this.state.isLoading){
         return(
             <p>isloading...</p>
         )
     }
-
     return(
         <div>
-        {this.state.dsource.map((e, ind) => { return (
-
-            <div key={ind}><h4>Employee :{e.id}</h4>
+            <button onClick={this.showhandler}>Add Employee</button>
+            {this.state.isform ?<div><Form/><button onClick={this.hidehandler}>Cancel</button></div>:null}
+        {this.state.dsource.map((e, i) => { return (
+            <div key={i}><h4>Employee :{e._id}</h4>
              <p>Name: {e.name}</p>
               <p>Age: {e.age}</p>
               <p>isActive: {e.isActive.toString()}</p>
