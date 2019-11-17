@@ -8,19 +8,19 @@ constructor(props)
 render()
     {
         return(
-            <form>
-<label name="n" type="text">Name:</label>
+            <form >
+<label  type="text">Name:</label><input></input>
 <br/>
-<label name="age" type="number">Age :</label>
+<label name="age" type="number">Age :</label><input></input>
 <br/>
-<label name="active" type="checkbox">IsActive:</label>
+<label name="active" >IsActive:</label><input type="checkbox"></input>
 <br/>
-<label name="com" type="text">Company:</label>
+<label name="com" type="text">Company:</label><input></input>
 <br/>
-<label name="email" type="text">Email</label>
+<label name="email" type="text">Email</label><input></input>
 <br/>
 <button type="submit" >Add</button>
-
+<button onClick={this.props.hidehandler}>Cancel</button>
             </form>
         )
 

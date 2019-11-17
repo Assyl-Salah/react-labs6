@@ -9,7 +9,7 @@ constructor(props){
         isLoading :true ,
         dsource :null,
        isform : false,
-       hideform :true
+      
     }
 }
 
@@ -23,7 +23,8 @@ componentDidMount(){
        //or .then(source=>this.setstate({dsource:source}))
     this.setState({
     dsource:source,
-    isLoading:false
+    isLoading:false,
+    isform :false
        });
    }
    );
@@ -32,7 +33,7 @@ showhandler=(e)=>{
     this.setState({isform:true})
 }
 hidehandler=(e)=>{
-    this.setState({hideform:false})
+    this.setState({isform:false})
 }
 render(){
     if(this.state.isLoading){
@@ -43,7 +44,7 @@ render(){
     return(
         <div>
             <button onClick={this.showhandler}>Add Employee</button>
-            {this.state.isform ?<div><Form/><button onClick={this.hidehandler}>Cancel</button></div>:null}
+            {this.state.isform ?<div><Form hidehandler={this.hidehandler}/></div>:null}
         {this.state.dsource.map((e, i) => { return (
             <div key={i}><h4>Employee :{e._id}</h4>
              <p>Name: {e.name}</p>
