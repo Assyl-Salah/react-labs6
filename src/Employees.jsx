@@ -12,7 +12,7 @@ constructor(props){
       isSaving :false
 
     };
-    
+    this.onDelete.bind(this);
 }
 
 componentDidMount(){
@@ -29,7 +29,9 @@ updateForm()
     dsource:source,
     isLoading:false,
     isform :false,
-    isSaving : false 
+    isSaving : false ,
+    idDeleting : null ,
+ isDeleting :false
        });
    }
    );
@@ -59,6 +61,19 @@ onSubmith=(e)=>{
 }
 
 
+  onDelete(event,id) {
+
+    console.log(id);
+   this.setState({idDeleting: id});
+
+ fetch(`http://localhost:3004/employees/${id}`, {
+   method: "delete"
+  })
+    .then(response => response.json())
+   .then(() => this.setState({idDeleting: null}))
+   .then(() => this.updateForm());
+   }
+
 showhandler=(e)=>{
     this.setState({isform:true})
 }
@@ -76,18 +91,32 @@ render(){
      <div>
             <button onClick={this.showhandler}>Add Employee</button>
              {/* {this.state.isform ?<div><Form hidehandler={this.hidehandler}/></div>:null}  task2*/}
-             {/*task3*/}
-            { this.state.isform ?this.state.isSaving ? <p>Saving ...</p> : <Form onSubmith={this.onSubmith}  onchange={this.onChangehandler} hidehandler={this.hidehandler} />: null }
-        {this.state.dsource.map((e, i) => { return (
+           
+          {/*task3*/}
+            { this.state.isform ?this.state.isSaving ? <p>Saving ...</p> : <Form onSubmith={this.onSubmith}  onchange={this.onChangehandler} hidehandler={this.hidehandler} />: null } 
+
+  {/*task4*/}
+             
+
+        {this.state.dsource.map((e, i) => {return(
+             
+
             <div key={i} ><h4>Employee :{e.id}</h4>
+          {this.state.idDeleting==null ?
+          <div>
              <p>Name: {e.name}</p>
               <p>Age: {e.age}</p>
               <p>isActive: {e.isActive.toString()}</p>
               <p>Company: {e.company}</p>
               <p>Email: {e.email}</p>      
-            </div>
-          )
+             <button onClick={(event) => {this.onDelete(event , e.id )}}> Delete  employee </button>    </div>
+          :
+       <p>Deleting...</p>} 
+             </div>
+        //please try deleting from the top because it's really fast 
+        )
         })
+        
         }
       </div>
           )
