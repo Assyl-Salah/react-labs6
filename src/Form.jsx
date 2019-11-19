@@ -8,19 +8,21 @@ constructor(props)
 render()
     {
         return(
-            <form >
-<label  type="text">Name:</label><input></input>
+            <form  onSubmit={this.props.onSubmith}>
+<label type="text">Name:</label><input name="name"></input>
 <br/>
-<label name="age" type="number">Age :</label><input></input>
+<label type="number">Age :</label><input name="age"></input>
 <br/>
-<label name="active" >IsActive:</label><input type="checkbox"></input>
+<label >IsActive:</label><input name="isActive" type="checkbox"></input>
 <br/>
-<label name="com" type="text">Company:</label><input></input>
+<label  type="text">Company:</label><input name="company"></input>
 <br/>
-<label name="email" type="text">Email</label><input></input>
+<label  type="text">Email :</label><input name="email"></input>
 <br/>
-<button type="submit" >Add</button>
+<button type="submit"  >Add</button>
 <button onClick={this.props.hidehandler}>Cancel</button>
+              
+              
             </form>
         )
 
