@@ -111,54 +111,6 @@
       "company": null,
       "email": null,
       "id": "S9opLpb"
-    },
-    {
-      "name": "qawww",
-      "age": "1",
-      "isActive": "on",
-      "company": "sss",
-      "email": "salaha@student.mini.pw.edu.pl",
-      "id": "q_bn_N8"
-    },
-    {
-      "name": null,
-      "age": 0,
-      "isActive": false,
-      "company": null,
-      "email": null,
-      "id": "LU7sHx8"
-    },
-    {
-      "name": null,
-      "age": 0,
-      "isActive": false,
-      "company": null,
-      "email": null,
-      "id": "P9mdkKf"
-    },
-    {
-      "name": "www",
-      "age": "11",
-      "isActive": "on",
-      "company": "uni",
-      "email": null,
-      "id": "6yq_JN0"
-    },
-    {
-      "name": "jjjjjjjj",
-      "age": "33",
-      "isActive": false,
-      "company": null,
-      "email": null,
-      "id": "R0myEnc"
-    },
-    {
-      "name": null,
-      "age": 0,
-      "isActive": false,
-      "company": null,
-      "email": null,
-      "id": "rXJAY8j"
     }
   ]
 }

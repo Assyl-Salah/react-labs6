@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from "react-router-dom";
 //import PageEmployeeList from "./PageEmployeeList"
 import {
     BrowserRouter as Router,
@@ -45,7 +46,7 @@ onSubmith=(e)=>{
  )
   .then(Response=>Response.json())
   .then(()=>this.setState({isSaving:false}))
- //.then(() => {this.props.history.push("/");});
+ .then(() => {this.props.history.push("/");});
  }
  showhandler=(e)=>{
     this.setState({isform:true})
@@ -83,4 +84,4 @@ render()
 
     }
 }
-export default PageEmployee;
+export default withRouter(PageEmployee);

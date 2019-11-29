@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from "react-router-dom";
 import{
   BrowserRouter as Router,
   Switch,
@@ -51,8 +52,8 @@ updateForm()
   })
     .then(response => response.json())
    .then(() => this.setState({idDeleting: null}))
-   .then(() => this.updateForm())
-   .then(() => { this.props.history.push("/");});
+   .then(() => this.updateForm());
+   
    }
 
 
@@ -85,4 +86,4 @@ render(){
       }
 }
 
-export default PageEmployeeList;
+export default withRouter(PageEmployeeList);
