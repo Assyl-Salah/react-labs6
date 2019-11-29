@@ -1,11 +1,13 @@
-import React from 'react'
-import Employees from './Employees'
-
+import React from 'react';
+import PageEmployee from './PageEmployeeList';
+import PageEmployeeList from './PageEmployee';
 const App = () => (
- <div> 
-   <h1>Minimal React</h1>  
-  <Employees/>
-  
+  <div>
+    <h1>Employees</h1> 
+ 
+  <PageEmployee></PageEmployee>
+  <br></br>
+ <PageEmployeeList></PageEmployeeList>
   </div>
-  )
+)
 export default App
