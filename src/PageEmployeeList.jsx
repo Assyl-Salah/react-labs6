@@ -1,6 +1,4 @@
 import React from 'react';
-import PageEmployee from './PageEmployee';
-
 class PageEmployeeList extends React.Component 
 {
 constructor(props){

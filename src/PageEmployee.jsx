@@ -1,12 +1,10 @@
 import React from 'react';
-import PageEmployeeList from "./PageEmployeeList"
+//import PageEmployeeList from "./PageEmployeeList"
 class PageEmployee extends React.Component 
 {
-    //new
 constructor(props)
     {
     super(props);
-    
     this.state={
         dsource :null,
        isform : false,
