@@ -1,4 +1,10 @@
 import React from 'react';
+import{
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 class PageEmployeeList extends React.Component 
 {
 constructor(props){
@@ -45,7 +51,8 @@ updateForm()
   })
     .then(response => response.json())
    .then(() => this.setState({idDeleting: null}))
-   .then(() => this.updateForm());
+   .then(() => this.updateForm())
+   .then(() => { this.props.history.push("/");});
    }
 
 
@@ -72,6 +79,7 @@ render(){
         })
         
         }
+        <Link to="/new"><button >Create new Employee</button></Link> 
       </div>
           )
       }

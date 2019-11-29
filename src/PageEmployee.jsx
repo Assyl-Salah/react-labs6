@@ -1,5 +1,11 @@
 import React from 'react';
 //import PageEmployeeList from "./PageEmployeeList"
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+  } from "react-router-dom";
 class PageEmployee extends React.Component 
 {
 constructor(props)
@@ -39,7 +45,7 @@ onSubmith=(e)=>{
  )
   .then(Response=>Response.json())
   .then(()=>this.setState({isSaving:false}))
-  //.then(()=>window.reload)
+ //.then(() => {this.props.history.push("/");});
  }
  showhandler=(e)=>{
     this.setState({isform:true})
@@ -55,7 +61,7 @@ render()
        
       
       <div>
-         { this.state.isSaving ? <p>Saving ...</p>  : '' } 
+         { this.state.isSaving ? <p>Saving ...</p>  : null } 
  <form  onSubmit={this.onSubmith}>
 <label>Name:</label><input   type="text" onChange={this.onChangeEvent} name="name"></input>
 <br/>
@@ -67,8 +73,10 @@ render()
 <br/>
 <label>Email :</label><input type="text" onChange={this.onChangeEvent}  name="email"></input>
 <br/>
-<button type="submit" onClick={this.onSubmith}>Submit</button>
-<button onClick={this.hidehandler}>Cancel</button>    
+
+<Link to="/"><button type="submit" onClick={this.onSubmith}>Submit</button></Link>
+<br></br>
+<Link to="/"><button onClick={this.hidehandler}>Cancel</button></Link> 
             </form>
             </div>
         )
